@@ -9,7 +9,7 @@
             let $el = $(this.el)
             $el.html(this.template)
             let {songs} = data
-            let liList = songs.map((song)=>$('<li></li>').text(song.name))
+            let liList = songs.map((song)=>$('<li></li>').text(song.name).attr('data-song-id',song.id))
             liList.map((domLi)=>{
                 $el.find('ul').append(domLi)
             })
@@ -51,6 +51,8 @@
         bindEvent(){
             $(this.view.el).on('click','li',(e)=>{
                 this.view.activeItem(e)
+                let songId = $(e.currentTarget).attr('data-song-id')
+                window.eventHub.emit('select',{id:songId})
             })
         },
         bindEventHub(){
