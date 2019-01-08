@@ -29,13 +29,12 @@
             </form>
         `,
         render(data = {}){
-          //data默认什么都没传的情况下，声明一个默认的数组，把需要传的对象的属性值放在里面
           let placheholder = ['name','singer','url','id']
-          html = this.template
-          placheholder.map((string)=>{
-            html = html.replace(`__${string}__`,data[string] || '')
-          })
-            $(this.el).html(html)
+           html = this.template
+           placheholder.map((string)=>{
+             html = html.replace(`__${string}__`,data[string] || '')
+           })
+          $(this.el).html(html)
         },
         reset(){
           this.render({})
@@ -54,11 +53,7 @@
         song.set('url',data.url)
         return song.save().then((newSong)=>{
           let {id, attributes} = newSong
-          // data.id= id
-          // data.name = attributes.name
-          // data.singer = attributes.singer
-          // data.url = attributes.url
-          Object.assign(this.data,{
+          return Object.assign(this.data,{
             id,
             ...attributes
           })
@@ -76,29 +71,22 @@
             this.view.render(this.model.data)
             this.bindEvent()
             window.eventHub.on('upload',(data)=>{
-              //监听上传完毕后拿到data传给render
               this.view.render(data)
-              console.log(data)
             })
         },
         bindEvent(){
-          //监听表单的提交事件，这里用了事件委托，原因是form不是一开始就在页面中的，
-          //而是通过调用this.view.render()才渲染到页面中的
-          this.$el.on('submit','form',(e)=>{
-            //阻止默认行为
+          this.$el.on('submit','.form',(e)=>{
             e.preventDefault()
-            //声明一个对应input里面的name值的数组，下面用来作为data的key
-            let needs = ['name','singer','url','id']
+            let info = ['name','singer','url','id']
             let data = {}
-            needs.map((string)=>{
-              //相当于data.name=$(input[name="name"]).val()
-              data[string]=this.$el.find(`[name=${string}]`).val()
+            info.map((name)=>{
+              data[name] = this.$el.find(`[name=${name}]`).val()
             })
-            this.model.create(data).then(()=>{
-              this.view.reset()
-              let string = JSON.stringify(this.model.data)
+            this.model.create(data).then((data)=>{
+              let string = JSON.stringify(data)
               let object = JSON.parse(string)
               window.eventHub.emit('create',object)
+              this.view.reset()
             })
           })
         }
