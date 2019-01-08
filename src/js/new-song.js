@@ -17,6 +17,7 @@
             this.model = model
             this.view.render(this.model.data)
             this.active()
+            this.bindEvent()
             this.bindEventHub()
         },
         active(){
@@ -24,6 +25,12 @@
         },
         deactive(){
             $(this.view.el).removeClass('active')
+        },
+        bindEvent(){
+            $(this.view.el).on('click',()=>{
+                this.active()
+                window.eventHub.emit('new')
+            })
         },
         bindEventHub(){
             window.eventHub.on('upload',()=>{
