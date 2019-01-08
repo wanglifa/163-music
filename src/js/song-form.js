@@ -70,9 +70,7 @@
             this.$el = $(this.view.el)
             this.view.render(this.model.data)
             this.bindEvent()
-            window.eventHub.on('upload',(data)=>{
-              this.view.render(data)
-            })
+            this.bindEventHub()
         },
         bindEvent(){
           this.$el.on('submit','.form',(e)=>{
@@ -88,6 +86,15 @@
               window.eventHub.emit('create',object)
               this.view.reset()
             })
+          })
+        },
+        bindEventHub(){
+          window.eventHub.on('upload',(data)=>{
+            this.view.render(data)
+          })
+          window.eventHub.on('select',(data)=>{
+            this.model.data = data
+            this.view.render(this.model.data)
           })
         }
     }
