@@ -29,8 +29,10 @@ body{
 .newSong.active{
     background: #d4d4d4;
 }
-.songList{
+#songList-wrapper{
     flex-grow: 1;
+}
+.songList{
     border-top: 1px solid #999;
 }
 .songList > li{
