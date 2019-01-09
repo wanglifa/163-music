@@ -62,6 +62,15 @@
             ...attributes
           })
         }).catch((error)=>console.log(error))
+      },
+      update(data){
+        var song = AV.Object.createWithoutData('Song', this.data.id)
+        // 修改属性
+        song.set('name', data.name)
+        song.set('singer', data.singer)
+        song.set('url', data.url)
+        // 保存到云端
+        return song.save()
       }
     }
     let controller = {
@@ -76,20 +85,40 @@
             this.bindEvent()
             this.bindEventHub()
         },
+        create(){
+          let info = ['name','singer','url','id']
+          let data = {}
+          info.map((name)=>{
+            data[name] = this.$el.find(`[name=${name}]`).val()
+          })
+          this.model.create(data).then((data)=>{
+            let string = JSON.stringify(data)
+            let object = JSON.parse(string)
+            window.eventHub.emit('create',object)
+            this.view.reset()
+          })
+        },
+        update(){
+          let info = ['name','singer','url','id']
+          let data = {}
+          info.map((name)=>{
+            data[name] = this.$el.find(`[name=${name}]`).val()
+          })
+          //执行更新方法，成功后拿到数据把当前的model里的data更改为song里的attributes，然后触发更新事件，把data传进去
+          return this.model.update(data).then((song)=>{
+            Object.assign(this.model.data,song.attributes)
+            window.eventHub.emit('update',JSON.parse(JSON.stringify(this.model.data)))
+          })
+        },
         bindEvent(){
           this.$el.on('submit','.form',(e)=>{
             e.preventDefault()
-            let info = ['name','singer','url','id']
-            let data = {}
-            info.map((name)=>{
-              data[name] = this.$el.find(`[name=${name}]`).val()
-            })
-            this.model.create(data).then((data)=>{
-              let string = JSON.stringify(data)
-              let object = JSON.parse(string)
-              window.eventHub.emit('create',object)
-              this.view.reset()
-            })
+            //如果数据库里有这个id说明已经存在点击按钮不会去创建而是去保存，否则就去创建
+            if(this.model.data.id){
+              this.update()
+            }else{
+              this.create()
+            }
           })
         },
         bindEventHub(){
