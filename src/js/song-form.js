@@ -93,15 +93,21 @@
           })
         },
         bindEventHub(){
-          window.eventHub.on('upload',(data)=>{
-            this.view.render(data)
-          })
           window.eventHub.on('select',(data)=>{
             this.model.data = data
             this.view.render(this.model.data)
           })
-          window.eventHub.on('new',()=>{
-            this.model.data = {}
+          window.eventHub.on('new',(data)=>{
+            //如果数据库里有这首歌曲的id，那么就清空
+            if(this.model.data.id){
+              this.model.data = {name: '',singer: '',url: '',id: ''}
+            }else{
+              //否则就把你当前的data赋值给this.model.data，又因为有可能没有data，
+              //所以需要在没data的时候就等于this.model.data
+              this.model.data = data || this.model.data
+              //Object.assign(this.model.data,data)
+            }
+            console.log(this.model.data)
             this.view.render(this.model.data)
           })
         }

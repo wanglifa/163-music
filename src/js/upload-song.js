@@ -55,7 +55,7 @@
                             let auth = response.key.split('-')
                             let singer = auth[0].trim()
                             let name = auth[1].trim()
-                            window.eventHub.emit('upload',{
+                            window.eventHub.emit('new',{
                                 url: sourceLink,
                                 singer,
                                 name

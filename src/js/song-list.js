@@ -68,7 +68,7 @@
                 this.model.data.songs.push(data)
                 this.view.render(this.model.data)
             })
-            window.eventHub.on('new',()=>{
+            window.eventHub.on('new',(data)=>{
                 this.view.clearActive()
             })
         }

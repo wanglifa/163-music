@@ -28,16 +28,15 @@
         },
         bindEvent(){
             $(this.view.el).on('click',()=>{
-                this.active()
                 window.eventHub.emit('new')
             })
         },
         bindEventHub(){
-            window.eventHub.on('upload',()=>{
-                this.active()
-            })
             window.eventHub.on('select',(data)=>{
                 this.deactive()
+            })
+            window.eventHub.on('new',()=>{
+                this.active()
             })
         }
     }
