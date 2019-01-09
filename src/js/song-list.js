@@ -8,22 +8,26 @@
         render(data){
             let $el = $(this.el)
             $el.html(this.template)
-            let {songs} = data
-            let liList = songs.map((song)=>$('<li></li>').text(song.name).attr('data-song-id',song.id))
+            let {songs,songsSelectId} = data
+            let liList = songs.map((song)=>{
+                let $li = $('<li></li>').text(song.name).attr('data-song-id',song.id)
+                if(song.id === songsSelectId){
+                    $li.addClass('active')
+                }
+                return $li
+            })
             liList.map((domLi)=>{
                 $el.find('ul').append(domLi)
             })
         },
         clearActive(){
             $(this.el).find('.active').removeClass('active')
-        },
-        activeItem(e){
-            $(e.currentTarget).addClass('active').siblings().removeClass('active')
         }
     }
     let model = {
         data: {
-            songs: []
+            songs: [],
+            songsSelectId: ''
         },
         find(){
             var query = new AV.Query('Song')
@@ -49,19 +53,20 @@
             this.bindEventHub()
         },
         bindEvent(){
-            $(this.view.el).on('click','li',(e)=>{
-                this.view.activeItem(e)
-                let songId = $(e.currentTarget).attr('data-song-id')
-                let song = this.model.data.songs
-                let data
-                for(let i=0;i<song.length;i++){
-                    if(song[i].id === songId){
-                        data= song[i]
-                        break
-                    }
+        $(this.view.el).on('click','li',(e)=>{
+            let songId = $(e.currentTarget).attr('data-song-id')
+            this.model.data.songsSelectId = songId
+            let song = this.model.data.songs
+            this.view.render(this.model.data)
+            let data
+            for(let i=0;i<song.length;i++){
+                if(song[i].id === songId){
+                    data= song[i]
+                    break
                 }
-                window.eventHub.emit('select',JSON.parse(JSON.stringify(data)))
-            })
+            }
+            window.eventHub.emit('select',JSON.parse(JSON.stringify(data)))
+        })
         },
         bindEventHub(){
             window.eventHub.on('create',(data)=>{

@@ -64,13 +64,13 @@
         }).catch((error)=>console.log(error))
       },
       update(data){
-        var song = AV.Object.createWithoutData('Song', this.data.id)
-        // 修改属性
-        song.set('name', data.name)
-        song.set('singer', data.singer)
-        song.set('url', data.url)
-        // 保存到云端
-        return song.save()
+      var song = AV.Object.createWithoutData('Song', this.data.id)
+      // 修改属性
+      song.set('name', data.name)
+      song.set('singer', data.singer)
+      song.set('url', data.url)
+      // 保存到云端
+      return song.save()
       }
     }
     let controller = {
@@ -136,7 +136,6 @@
               this.model.data = data || this.model.data
               //Object.assign(this.model.data,data)
             }
-            console.log(this.model.data)
             this.view.render(this.model.data)
           })
         }
