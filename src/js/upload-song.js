@@ -36,7 +36,7 @@
                     },
                     'UploadProgress': function(up, file) {
                             // 每个文件上传时,处理相关的事情
-                            uploadStatus.textContent = '上传中'
+                            window.eventHub.emit('uploading')
                     },
                     'FileUploaded': function(up, file, info) {
                     
@@ -51,10 +51,10 @@
                             var domain = up.getOption('domain');
                             var response = JSON.parse(info.response);
                             var sourceLink = domain + encodeURIComponent(response.key); //获取上传成功后的文件的Url
-                            uploadStatus.textContent = sourceLink + ''+ response.key
                             let auth = response.key.split('-')
                             let singer = auth[0].trim()
                             let name = auth[1].trim()
+                            window.eventHub.emit('upload')
                             window.eventHub.emit('new',{
                                 url: sourceLink,
                                 singer,
