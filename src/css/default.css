@@ -42,6 +42,12 @@ body{
 .songList > li.active{
     background: #d4d4d4;
 }
+.songList >li > span{
+    float: right;
+    color: #aeabab;
+    padding-left: 14px;
+    cursor: pointer;
+}
 .draggable{
     padding: 20px;
     border-radius: 4px;

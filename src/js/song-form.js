@@ -23,7 +23,7 @@
                 <input name="url" type="text" value="__url__">
               </div>
               <div class="row actions">
-                <button type="submit">保存</button>
+                <button type="submit" class="save">保存</button>
               </div>
             </form>
         `,
@@ -64,13 +64,13 @@
         }).catch((error)=>console.log(error))
       },
       update(data){
-      var song = AV.Object.createWithoutData('Song', this.data.id)
-      // 修改属性
-      song.set('name', data.name)
-      song.set('singer', data.singer)
-      song.set('url', data.url)
-      // 保存到云端
-      return song.save()
+        var song = AV.Object.createWithoutData('Song', this.data.id)
+        // 修改属性
+        song.set('name', data.name)
+        song.set('singer', data.singer)
+        song.set('url', data.url)
+        // 保存到云端
+        return song.save()
       }
     }
     let controller = {
@@ -95,7 +95,8 @@
             let string = JSON.stringify(data)
             let object = JSON.parse(string)
             window.eventHub.emit('create',object)
-            this.view.reset()
+            this.model.data = {name: '',singer: '',id: '',url: ''}
+            this.view.render()
           })
         },
         update(){
@@ -108,6 +109,7 @@
           return this.model.update(data).then((song)=>{
             Object.assign(this.model.data,song.attributes)
             window.eventHub.emit('update',JSON.parse(JSON.stringify(this.model.data)))
+            this.view.render()
           })
         },
         bindEvent(){
