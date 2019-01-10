@@ -24,6 +24,19 @@
             this.view.init()
             this.bindEvent()
             this.bindEventHub()
+            this.module1()
+            this.module2()
+        },
+        module1(){
+            this.appendScript('./js/index/page-1-1.js')      
+        },
+        module2(){
+            this.appendScript('./js/index/page-1-2.js')
+        },
+        appendScript(str){
+            let script = document.createElement('script')
+            script.src = str
+            document.body.appendChild(script)
         },
         bindEvent(){
             
