@@ -5,7 +5,11 @@
             return $(this.el).find(selector)[0]
         }
     }
-    let model = {}
+    let model = {
+        data: {
+            status: 'open'
+        }
+    }
     let controller = {
         view: null,
         model: null,
@@ -31,14 +35,21 @@
                             // 文件添加进队列后,处理相关的事情
                         });
                     },
-                    'BeforeUpload': function(up, file) {
+                    'BeforeUpload': (up, file)=> {
                             // 每个文件上传前,处理相关的事情
-                    },
-                    'UploadProgress': function(up, file) {
-                            // 每个文件上传时,处理相关的事情
                             window.eventHub.emit('uploading')
+                            if(this.model.data.status === 'close'){
+                                return false
+                            }else {
+                                this.model.data.status = 'close'
+                                return true
+                            }
                     },
-                    'FileUploaded': function(up, file, info) {
+                    'UploadProgress': (up, file)=> {
+                            // 每个文件上传时,处理相关的事情
+                            
+                    },
+                    'FileUploaded': (up, file, info)=> {
                     
                             // 每个文件上传成功后,处理相关的事情
                             // 其中 info.response 是文件上传成功后，服务端返回的json，形式如
@@ -47,7 +58,7 @@
                             //    "key": "gogopher.jpg"
                             //  }
                             // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
-                    
+                            this.model.data.status = 'open'
                             var domain = up.getOption('domain');
                             var response = JSON.parse(info.response);
                             var sourceLink = domain + encodeURIComponent(response.key); //获取上传成功后的文件的Url
