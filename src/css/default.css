@@ -5,6 +5,7 @@
 ul,li{list-style: none;}
 a{color: inherit;text-decoration: none;}
 input{font: inherit;}
+textarea{resize:none;}
 
 body{
     font-size: 12px;
@@ -84,7 +85,7 @@ body{
 .form > .row.actions{
     margin-left: calc(4em + 5px);
 }
-.form input[type="text"]{
+.form input[type="text"],textarea{
     padding: 3px 8px;
     border-radius: 5px;
     border: 1px solid #ddd;
@@ -92,7 +93,7 @@ body{
 }
 .form input[type="button"],
 .form input[type="submit"],
-.form button{
+.form button,textarea{
     height: 30px;
     padding-left: 10px;
     padding-right: 10px;
@@ -102,6 +103,7 @@ body{
     border: 1px solid #ddd;
     background: #fff;
 }
+textarea{height: auto;}
 
 /* loading */
 .loading{
