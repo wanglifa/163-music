@@ -50,7 +50,7 @@
             let originalHeight = $(p)[0].getBoundingClientRect().top
             $(p).addClass('active').siblings().removeClass('active')
             let parentHeight = this.$el.find('.lyric> .lines')[0].getBoundingClientRect().top
-            let height = parentHeight - originalHeight + 20
+            let height = parentHeight - originalHeight + 24
             this.lyricMove(height)
         },
         statusJudge(status){
