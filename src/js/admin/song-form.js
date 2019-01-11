@@ -22,13 +22,19 @@
                 </label>
                 <input name="url" type="text" value="__url__">
               </div>
+              <div class="row">
+                <label>
+                  封面
+                </label>
+                <input name="cover" type="text" value="__cover__">
+              </div>
               <div class="row actions">
                 <button type="submit" class="save">保存</button>
               </div>
             </form>
         `,
         render(data = {}){
-          let placheholder = ['name','singer','url','id']
+          let placheholder = ['name','singer','url','id','cover']
            html = this.template
            placheholder.map((string)=>{
              html = html.replace(`__${string}__`,data[string] || '')
@@ -46,7 +52,7 @@
     }
     let model = {
       data: {
-        name: '',singer: '',url: '',id: ''
+        name: '',singer: '',url: '',id: '',cover: ''
       },
       create(data){
         var Song = AV.Object.extend('Song')
@@ -55,6 +61,7 @@
         song.set('name',data.name)
         song.set('singer',data.singer)
         song.set('url',data.url)
+        song.set('cover',data.cover)
         return song.save().then((newSong)=>{
           let {id, attributes} = newSong
           return Object.assign(this.data,{
@@ -69,6 +76,7 @@
         song.set('name', data.name)
         song.set('singer', data.singer)
         song.set('url', data.url)
+        song.set('cover',data.cover)
         // 保存到云端
         return song.save()
       }
@@ -86,7 +94,7 @@
             this.bindEventHub()
         },
         create(){
-          let info = ['name','singer','url','id']
+          let info = ['name','singer','url','id','cover']
           let data = {}
           info.map((name)=>{
             data[name] = this.$el.find(`[name=${name}]`).val()
@@ -95,12 +103,12 @@
             let string = JSON.stringify(data)
             let object = JSON.parse(string)
             window.eventHub.emit('create',object)
-            this.model.data = {name: '',singer: '',id: '',url: ''}
+            this.model.data = {name: '',singer: '',id: '',url: '',cover: ''}
             this.view.render()
           })
         },
         update(){
-          let info = ['name','singer','url','id']
+          let info = ['name','singer','url','id','cover']
           let data = {}
           info.map((name)=>{
             data[name] = this.$el.find(`[name=${name}]`).val()
@@ -131,7 +139,7 @@
           window.eventHub.on('new',(data)=>{
             //如果数据库里有这首歌曲的id，那么就清空
             if(this.model.data.id){
-              this.model.data = {name: '',singer: '',url: '',id: ''}
+              this.model.data = {name: '',singer: '',url: '',id: '',cover: ''}
             }else{
               //否则就把你当前的data赋值给this.model.data，又因为有可能没有data，
               //所以需要在没data的时候就等于this.model.data
