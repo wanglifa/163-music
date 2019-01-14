@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.wrapper{
+    display: flex;
+    padding: 40px;
+}
+h1{
+    margin-bottom: 20px;
+}
+.row{
+    padding: 6px 0;
+}
+.checklist-wrapper{
+    height: 100vh;
+    border: 1px solid #ddd;
+    width: 20vw;
+    margin-left: 1vw;
+}
+.checklist-wrapper > li{
+    padding: 10px;
+    border-bottom: 1px dashed #ddd;
+}
+.checklist-wrapper > li > span{
+    float: right;
+    color: #ddd;
+    cursor: pointer;
+}
