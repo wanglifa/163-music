@@ -6,25 +6,62 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>创建歌单</title>
     <link rel="stylesheet" href="./css/default.css">
+    <style>
+        .playlistform-wrapper{
+            display: flex;
+            justify-content: flex-start;
+        }
+        .left{
+            margin-right: 40px;
+        }
+        .right{
+            border: 1px solid #ddd;
+            height: 100vh;
+        }
+        .right > h1{
+            font-size: 24px;
+            padding: 12px;
+            font-weight: normal;
+            border-bottom: 1px solid #ddd;
+        }
+        .list-main{
+            width: 40vw;
+        }
+        .list-main > li{
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        .list-main > li > .edit{
+            float: right;
+        }
+    </style>
 </head>
 <body>
 
 <div class="playlistform-wrapper">
-    <h1>创建歌单</h1>
-    <form class="playlistForm">
-        <div class="row">
-            <label for="">歌单名<input type="text" name="name"></label>
+    <div class="left">
+        <h1>创建歌单</h1>
+        <form class="playlistForm">
+            <div class="row">
+                <label for="">歌单名<input type="text" name="name"></label>
+            </div>
+            <div class="row">
+                <label>封面<input type="text" name="cover"></label>
+            </div>
+            <div class="row">
+               <label for="">简介<textarea name="summary" cols="30" rows="10"></textarea></label>
+            </div>
+            <div class="row">
+                <button type="submit">提交</button>
+            </div>
+        </form>
+    </div>
+    <div class="right">
+        <h1>已有歌单</h1>
+        <div class="list">
+            
         </div>
-        <div class="row">
-            <label>封面<input type="text" name="cover"></label>
-        </div>
-        <div class="row">
-           <label for="">简介<textarea name="summary" cols="30" rows="10"></textarea></label>
-        </div>
-        <div class="row">
-            <button type="submit">提交</button>
-        </div>
-    </form>
+    </div>
 </div>
    <script src="../node_modules/leancloud-storage/dist/av-min.js"></script> 
    <script src="./js/initializers/av.js"></script>
@@ -33,49 +70,7 @@
    <script src="../node_modules/plupload/js/plupload.min.js"></script>
    <script src="../node_modules/qiniu-js/dist/qiniu.min.js"></script>
    <script src="./js/admin/eventhub.js"></script>
-   <script>
-        {
-            let view = {
-                el: '.playlistform-wrapper',
-                $form: null,
-                init(){
-                    this.$el = $(this.el)
-                    this.$form = this.$el.find('.playlistForm')
-                }
-            }
-            let model = {
-                create(data){
-                    var playlist = new AV.Object('Playlist')
-                    for(let key in data){
-                        playlist.set(key,data[key])
-                    }
-                    playlist.save().then((newplaylist)=>{
-                        let {id} = newplaylist
-                        window.location.href=`admin-addplaylist.html?id=${id}`
-                    })
-                }
-            }
-            let controller = {
-                init(view, model){
-                    this.view = view
-                    this.model = model
-                    this.view.init()
-                    this.bindEvent()
-                },
-                bindEvent(){
-                    this.view.$form.on('click','button',(e)=>{
-                        e.preventDefault()
-                        let keys = ['name','summary','cover']
-                        let data = {}
-                        keys.map(name=>{
-                             data[name] = this.view.$form.find(`[name=${name}]`).val()
-                        })
-                        this.model.create(data)
-                    })
-                }
-            }
-            controller.init(view, model)
-        }
-   </script>
+   <script src="./js/admin-playlist/creat.js"></script>
+   <script src="./js/admin-playlist/songs-list.js"></script>
 </body>
 </html>

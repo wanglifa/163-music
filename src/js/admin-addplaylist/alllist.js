@@ -81,7 +81,7 @@
                             songsId.pop(currentId)
                         }
                     }
-                }) 
+                })
             })
             this.view.$el.on('submit','.addplaylist',(e)=>{
                 e.preventDefault()
@@ -96,6 +96,9 @@
                     this.model.data.playlistSongs = []
                 })
                 this.view.$el.find('.addplaylist > .row > label> input').prop('checked',false)
+                setTimeout(()=>{
+                    window.location = `admin-playlist.html`
+                },2000) 
             })
         }
     }

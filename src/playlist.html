@@ -5,14 +5,18 @@
   <title>网易云音乐</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/playlist.css">
 </head>
 <body>
-  playlist
   <div class="playlist">
       <div class="top">
-          <div class="left"></div>
-          <div class="right"></div>
+          <div class="bg"></div>
+          <div class="top-wrapper">
+                <div class="left"></div>
+                <div class="right"></div>
+          </div>
       </div>
+      <div class="middle"></div>
       <div class="bottom">
         <section class="songs">
             <h2 class="sectionTitle">歌曲列表</h2>
@@ -20,6 +24,21 @@
                 <div id="songs-loading" class="square-spin" style="margin: 0 auto; width: 50px;"><div></div></div>
             </ol>
           </section>
+          <section class="comment">
+            <h2 class="sectionTitle">评论区</h2>
+            <form>
+                <div class="row">
+                    <label for="">
+                        <img src="" alt="">
+                    </label>
+                    <textarea name="comment" cols="30" rows="1">发布你的评论</textarea>
+                </div>
+                <div class="row">
+                    <button>发布</button>
+                </div>
+            </form>
+            <div class="comment-list"></div>
+        </section>
       </div>
   </div>
   <script src="../node_modules/leancloud-storage/dist/av-min.js"></script> 

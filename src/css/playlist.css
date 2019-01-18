@@ -28,3 +28,126 @@ h1{
     color: #ddd;
     cursor: pointer;
 }
+.playlist > .top{
+    height: 30vh;
+    overflow: hidden;
+    position: relative;
+}
+.top > .bg{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    bottom: -10px;
+    right: -10px;
+    background-size: cover;
+    filter: blur(12px);
+    z-index: -1;
+}
+.top-wrapper{
+    display: flex;
+    padding: 6vh 4vw;
+}
+.top-wrapper > .left{
+    width: 40vw;
+    position: relative;
+}
+.left > .slogn{
+    position: absolute;
+    padding: 0 8px;
+    height: 17px;
+    color: #fff;
+    font-size: 9px;
+    text-align: center;
+    line-height: 17px;
+    background-color: rgba(217,48,48,.8);
+    border-top-right-radius: 17px;
+    border-bottom-right-radius: 17px;
+    top: 1vh;
+    left: 0;
+}
+.top-wrapper > .right{
+    width: 60vw;
+    padding-left: 4vw;
+}
+.top-wrapper > .right > p{
+    font-size: 17px;
+    color: #fff;
+}
+.top-wrapper > .left > img{
+    width: 100%;
+    display: block;
+    border: 1px solid #ddd;
+}
+.middle{
+    padding: 4vh;
+}
+body{
+    background-color: #f8f8f8;
+}
+.sectionTitle{
+    background-color: #eeeff0;
+    margin: 0;
+    padding: 2vh;
+    border-left: none;
+    display: flex;
+    align-items: center;
+}
+.sectionTitle::before{
+    content: '';
+    display: block;
+    height: 17px;
+    width: 2px;
+    background: #D43C33;
+    margin-right: 1vh;
+}
+.comment form{
+    padding: 3vh;
+}
+.comment .row{
+    display: flex;
+    justify-content: flex-start;
+}
+.row > label{
+    width: 10%;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 10%;
+}
+.row > label img{
+    width: 100%;
+    display: block;
+}
+.row textarea{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 86%;
+    margin-left: 4%;
+    height: 10vh;
+    color: #ccc;
+    padding: 10px;
+    outline: none;
+}
+.row button{
+    margin-left: 14%;
+    background-color: #D43C33;
+    color: #fff;
+    border: none;
+    padding: 1vh 2vh;
+    border-radius: 8px;
+}
+.comment-list ul{
+    padding: 10px;
+}
+.comment-list ul > li{
+    color: #666;
+    padding: 1vh 0;
+    display: flex;
+}
+.comment-list ul > li > strong{
+    width: 16%;
+}
+.comment-list ul > li > span{
+    width: 84%;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding-bottom: 1vh;
+}
