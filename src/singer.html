@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <title>网易云音乐</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="./css/song.css">
+</head>
+<body>
+  <div class="page">
+    <div class="page-container"></div> 
+		<div class="disc-container">
+      <img class="pointer" src="./img/point.png" alt="">
+      <audio src="#"></audio>
+			<div class="disc">
+				<div class="icon-wrapper">
+					<svg class="icon icon-play">
+						<use xlink:href="#icon-play"></use>
+					</svg>
+					<svg class="icon icon-pause">
+						<use xlink:href="#icon-pause"></use>
+					</svg>
+				</div>
+				<img class="ring" src="./img/disc.png" alt="">
+				<img class="light" src="./img/disc-light.png" alt="">
+				<img src="#" alt="" class="cover">
+			</div>
+		</div>
+		<div class="song-description">
+			<h1></h1>
+			<div class="lyric">
+				<div class="lines">
+					
+				</div>
+			</div>
+		</div>
+		<div class="links">
+			<a href="#">打开</a>
+			<a class="main" href="#">下载</a>
+		</div>
+	</div>
+  <script src="../node_modules/leancloud-storage/dist/av-min.js"></script> 
+  <script src="./js/initializers/av.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../vendors/moxie.js"></script>
+  <script src="../node_modules/plupload/js/plupload.min.js"></script>
+  <script src="../node_modules/qiniu-js/dist/qiniu.min.js"></script>
+  <script src="./js/admin/eventhub.js"></script>
+  <script src="./js/song/app.js"></script>
+  <script src="//at.alicdn.com/t/font_9dyko39vtiifi529.js"></script>
+</body>
+</html>

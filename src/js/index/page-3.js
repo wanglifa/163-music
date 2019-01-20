@@ -38,12 +38,6 @@
                 </a>
             </li>`)
             return $li
-        },
-        show(){
-            this.$el.addClass('active')
-        },
-        hide(){
-            this.$el.removeClass('active')
         }
     }
     let model = {
@@ -68,7 +62,6 @@
             this.model = model
             this.view.init()
             this.bindEvent()
-            this.bindEventHub()
         },
         find(current){
             return this.model.find(current.val()).then((songs)=>{
@@ -130,16 +123,6 @@
         },
         renderInput(){
             this.view.$el.find('input').val('')
-        },
-        bindEventHub(){
-            window.eventHub.on('select',(tabName)=>{
-                if(tabName === 'page-3'){
-                    this.view.show()
-                    this.renderInput()
-                }else{
-                    this.view.hide()
-                }
-            })
         }
     }
     controller.init(view, model)

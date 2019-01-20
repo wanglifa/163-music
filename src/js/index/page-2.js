@@ -6,12 +6,6 @@
         init(){
             this.$el = $(this.el)
         },
-        show(){
-            this.$el.addClass('active')
-        },
-        hide(){
-            this.$el.removeClass('active')
-        },
         render(data){
             let {songs} = data
             songs.map(song=>{
@@ -61,16 +55,6 @@
             this.model.find().then((data)=>{
                 console.log(data)
                 this.view.render(data)
-            })
-            this.bindEventHub()
-        },
-        bindEventHub(){
-            window.eventHub.on('select',(tabName)=>{
-                if(tabName === 'page-2'){
-                    this.view.show()
-                }else{
-                    this.view.hide()
-                }
             })
         }
     }
