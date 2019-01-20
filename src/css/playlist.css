@@ -29,9 +29,9 @@ h1{
     cursor: pointer;
 }
 .playlist > .top{
-    height: 30vh;
-    overflow: hidden;
     position: relative;
+    height: 100%;
+    overflow: hidden;
 }
 .top > .bg{
     position: absolute;
@@ -45,10 +45,10 @@ h1{
 }
 .top-wrapper{
     display: flex;
-    padding: 6vh 4vw;
+    padding: 4vh;
 }
 .top-wrapper > .left{
-    width: 40vw;
+    width: 40%;
     position: relative;
 }
 .left > .slogn{
@@ -66,8 +66,8 @@ h1{
     left: 0;
 }
 .top-wrapper > .right{
-    width: 60vw;
-    padding-left: 4vw;
+    width: 60%;
+    padding-left: 14px;
 }
 .top-wrapper > .right > p{
     font-size: 17px;
@@ -122,7 +122,6 @@ body{
     border-radius: 10px;
     width: 86%;
     margin-left: 4%;
-    height: 10vh;
     color: #ccc;
     padding: 10px;
     outline: none;
@@ -144,10 +143,28 @@ body{
     display: flex;
 }
 .comment-list ul > li > strong{
-    width: 16%;
+    width: 54px;
 }
 .comment-list ul > li > span{
-    width: 84%;
+    width: calc(100% - 54px);
     border-bottom: 1px solid rgba(0,0,0,.1);
     padding-bottom: 1vh;
+}
+
+.info{
+    background: #ddd;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    color: #D43C33;
+    padding: 6px 12px;
+    border-radius: 12px;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.info.active{
+    display: block;
+}
+.row button:focus{
+    outline: none;
 }

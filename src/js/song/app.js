@@ -144,6 +144,7 @@
             window.eventHub.on('songEnd',()=>{
                 this.model.data.status = 'pause'
                 this.view.render(this.model.data)
+                this.view.lyricMove(24)
             })
         }
     }

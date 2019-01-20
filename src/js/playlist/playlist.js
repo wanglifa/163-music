@@ -132,6 +132,7 @@
             this.model.getplaylistId()
             this.id = this.model.data.playlist.id
             this.model.getComment(this.id).then((context)=>{
+                var context = context.reverse()
                 this.view.renderComment(context)
             })
             this.asycModel()
@@ -148,11 +149,20 @@
                 e.preventDefault()
                 let comments = this.model.data.comments
                 let comment = this.view.$el.find('[name=comment]').val()
-                this.model.createComment(comment).then((data)=>{
-                    let {context} = data.attributes
-                    comments.unshift(context)
-                    this.view.renderComment(comments)
-                })
+                if(comment !== '' && comment !== '发布你的评论'){
+                    this.model.createComment(comment).then((data)=>{
+                        let {context} = data.attributes
+                        let info = this.view.$el.find('.info')
+                        comments.unshift(context)
+                        info.addClass('active')
+                        setTimeout(()=>{
+                            info.removeClass('active')
+                        },1000)
+                        this.view.renderComment(comments)
+                        this.view.$el.find('[name=comment]').val('发布你的评论')
+                    })
+                }
+                
             })
         },
         

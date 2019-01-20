@@ -48,9 +48,34 @@
           </div>
         </section>
       </li>
-      <li class="page-2">page 2</li>
+      <li class="page-2">
+        <div class="cover2">
+        </div>
+        <section class="songs">
+          <ol id="songs" class="list">
+            <div id="songs-loading" class="square-spin" style="margin: 0 auto; width: 50px;"><div></div></div>
+          </ol>
+        </section>
+      </li>
       <li class="page-3">
-        <input id="search" type="text" style="background:#EBECEC;">
+        <div class="search-wrapper">
+            <div class="search">
+                <i class="i-search">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-search"></use>
+                    </svg>
+                </i>
+                <input id="search" type="text" style="background:#EBECEC;">
+                <label>搜索歌曲</label>
+                <div class="close">
+                  <i class="i-close">
+                      <svg class="icon" aria-hidden="true">
+                          <use xlink:href="#icon-close"></use>
+                      </svg>
+                  </i>
+                </div>
+              </div>
+        </div>
         <ol id="searchResult"></ol>
       </li>
     </ol>
@@ -67,5 +92,6 @@
   <script src="./js/index/page-2.js"></script>
   <script src="./js/index/page-3.js"></script>
   <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
+  <script src="//at.alicdn.com/t/font_1023713_909yvdiz0c.js"></script>
 </body>
 </html>

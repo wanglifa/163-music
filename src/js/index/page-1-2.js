@@ -1,6 +1,6 @@
 {
     let view = {
-        el: '.songs',
+        el: '.page-1 > .songs',
         init(){
             this.$el = $(this.el)
         },

@@ -118,7 +118,11 @@ body{
     display: table;
   }
   
-  section.playlists{
+  .page-2 .cover2{
+    background: url(http://pkl6kjvxu.bkt.clouddn.com/lin-midlle.jpg) no-repeat;
+    background-size: cover;
+    padding: 10vh 0;
+    background-position: center;
   }
   section.playlists > ol.songs{
     display: flex;
@@ -142,7 +146,67 @@ body{
   section.playlists > ol.songs > li img{
     width: 100%;
   }
-  section.songs{}
+
+  .page-3 > .search-wrapper{
+    padding: 15px 10px;
+  }
+  .page-3  .search{
+    position: relative;
+  }
+  .page-3 .search-wrapper .i-search,.page-3 label,.close{
+    position: absolute;
+  }
+  .search-wrapper i.i-search {
+    left: 0;
+    top: 4px;
+    z-index: 1;
+    left: 8px;
+  }
+  .close{
+    right: 8px;
+    top: 4px;
+    display: none;
+  }
+  .close.active{
+    display: block;
+  }
+  i .icon,.search label{
+    color: #c9c9c9;
+  }
+  .search label{
+    left: 30px;
+    line-height: 30px;
+    top: 0;
+    pointer-events: none;
+  }
+  .page-3 input{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    padding: 0 30px;
+    box-sizing: border-box;
+    background: #ebecec;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+  }
+  #searchResult li{
+    padding-left: 10px;
+  }
+  #searchResult li a{
+    display: block;
+    display: flex;
+    align-items: center;
+  }
+  #searchResult li .i-search{
+    margin-right: 7px;
+  }
+  #searchResult li span{
+    line-height: 45px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    width: 100%;
+    margin-right: 10px;
+  }
   section.songs > .list {
     margin-top: 18px;
   }

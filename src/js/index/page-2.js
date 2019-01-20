@@ -1,3 +1,4 @@
+
 {
     let view =  {
         el: '.page-2',
@@ -10,10 +11,45 @@
         },
         hide(){
             this.$el.removeClass('active')
+        },
+        render(data){
+            let {songs} = data
+            songs.map(song=>{
+                let {singer,name,id} = song
+                let $li = $(`
+                <li>
+                    <h3>${name}</h3>
+                    <p>
+                        <svg class="icon icon-sq">
+                            <use xlink:href="#icon-sq"></use>
+                        </svg>
+                        ${singer}
+                    </p>
+                    <a class="playButton" href="./song.html?id=${id}">
+                        <svg class="icon icon-play">
+                            <use xlink:href="#icon-play"></use>
+                        </svg>
+                    </a>
+                </li>`)
+                this.$el.find('.list').append($li)
+            })
         }
     }
     let model = {
-
+        data: {
+            songs: []
+        },
+        find(){
+            var playlist = AV.Object.createWithoutData('Playlist', '5c41897944d904006a527080')
+            var query = new AV.Query('Song')
+            query.equalTo('dependent', playlist)
+            return query.find().then((songs)=>{
+                songs.map(song=>{
+                    this.data.songs.push({...song.attributes})
+                })
+                return this.data
+            })
+        }
     }
     let controller = {
         view: null,
@@ -22,6 +58,10 @@
             this.view = view
             this.model = model
             this.view.init()
+            this.model.find().then((data)=>{
+                console.log(data)
+                this.view.render(data)
+            })
             this.bindEventHub()
         },
         bindEventHub(){
