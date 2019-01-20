@@ -7,12 +7,9 @@
         },
         render(data){
             this.$el.find('#searchResult').html('')
-            console.log(this.$el.find('#searchResult').html())
             let {songs}= data
-            console.log(songs)
             if(songs.length && songs.length !== 0){
                 songs.map(song=>{
-                    console.log(1)
                     let {name,id} = song
                     let $li = this.setLi(name)
                     if(id){
@@ -20,7 +17,6 @@
                     }else{
                         $li.find('a').attr('href',`singer.html?name=${name}`)
                     }
-                    console.log($li)
                     this.$el.find('#searchResult').append($li)
                 })
             }else{
@@ -80,7 +76,6 @@
                 this.model.data.songs = []
                 this.view.render(this.model.data)
                 songs.map(song=>{
-                    console.log(3)
                     let {singer,name,id} = song.attributes
                     this.songs = this.model.data.songs
                     let addSinger = {name:singer}
@@ -111,6 +106,13 @@
                     },400)   
                 })
             })
+            this.clostBtn($el)
+        },
+        clostBtn($el){
+            $el.find('.close').on('click',(e)=>{
+                this.renderInput()
+                this.remove($el)
+            })
         },
         searchResult(current,$el,fn){
             if(current.val() !== ''){
@@ -118,15 +120,22 @@
                 $el.find('.close').addClass('active')
                 fn()
             }else{
-                $el.find('label').text('搜索歌曲')
-                $el.find('.close').removeClass('active')
-                $el.find('#searchResult').html('')
+                this.remove($el)
             }  
+        },
+        remove($el){
+            $el.find('label').text('搜索歌曲')
+            $el.find('.close').removeClass('active')
+            $el.find('#searchResult').html('')
+        },
+        renderInput(){
+            this.view.$el.find('input').val('')
         },
         bindEventHub(){
             window.eventHub.on('select',(tabName)=>{
                 if(tabName === 'page-3'){
                     this.view.show()
+                    this.renderInput()
                 }else{
                     this.view.hide()
                 }
