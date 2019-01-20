@@ -15,7 +15,6 @@
             this.view.init()
             this.locationInit()
             this.bindEvent()
-            this.bindEventHub()
         },
         bindEvent(){
             this.view.$el.find('.tabs-nav').on('click','li',(e)=>{
@@ -24,11 +23,7 @@
                 let tabName = $li.attr('data-tab-name')
                 location.href = `index.html#tab=${tabName}`
                 this.locationInit()
-                // window.eventHub.emit('select',tabName)
             })
-        },
-        bindEventHub(){
-            
         },
         locationInit(){
             let search = location.hash
