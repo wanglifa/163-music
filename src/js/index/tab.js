@@ -22,7 +22,8 @@
                 let $li = $(e.currentTarget)
                 $li.addClass('active').siblings().removeClass('active')
                 let tabName = $li.attr('data-tab-name')
-                location.href = `index.html?tab=${tabName}`
+                location.href = `index.html#tab=${tabName}`
+                this.locationInit()
                 // window.eventHub.emit('select',tabName)
             })
         },
@@ -30,9 +31,9 @@
             
         },
         locationInit(){
-            let search = location.search
+            let search = location.hash
             if(!search){
-                location.href += `?tab=page-1`
+                location.href += `#tab=page-1`
             }
             this.tab = search.substring(1).split('=')[1]
             this.positionTab()
