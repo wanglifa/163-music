@@ -219,6 +219,10 @@
                 this.clickSingerAfterInputVal(current,'span')
                 this.singerModelCssInitJudge()
                 this.getSingerSong(current)
+                let text = current.find('span').text()
+                let href = current.find('a').attr('href')
+                this.updataHistoryList({name:text,href})
+                this.model.updataHistoryList()
             })
         },
         singerDisplayNorepeat(){
@@ -327,17 +331,22 @@
                 e.preventDefault()
                 this.inputVal = this.$el.find('input').val()
                 let songs = this.model.data.songs
+                let href
                 if(songs.length && songs.length > 0){
                     songs.map(song=>{
                         if(song.id){
                             location.href = `song.html?id=${song.id}`
+                            href = `song.html?id=${song.id}`
                         }else{
                             this.songsInit()
                             this.$el.find('#searchResult').empty()
                             this.singerFindSong(this.inputVal)
+                            href = 'javascript:;'
                         }
                     })
                 }
+                this.updataHistoryList({name:this.inputVal,href})
+                this.model.updataHistoryList()
             })
         },
         historyListInit(){
@@ -349,7 +358,7 @@
             this.view.renderHistory(this.$data.historyList)
         },
         updataHistoryList(data){
-            this.$data.historyList.push(data)
+            this.$data.historyList.unshift(data)
             this.noRepeat(this.$data.historyList,'historyList')
             this.view.renderHistory(this.$data.historyList)
         },
