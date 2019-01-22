@@ -53,7 +53,6 @@
             this.model = model
             this.view.init()
             this.model.find().then((data)=>{
-                console.log(data)
                 this.view.render(data)
             })
         }

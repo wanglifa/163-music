@@ -30,8 +30,10 @@
             if(!search){
                 location.href += `#tab=page-1`
             }
-            this.tab = search.substring(1).split('=')[1]
+            this.tab = search.substring(1).split('=')[1] || 'page-1'
+            console.log(this.tab)
             this.positionTab()
+            console.log(5)
         },
         positionTab(){
             let tabs = ['page-1','page-2','page-3']

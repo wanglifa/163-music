@@ -3,7 +3,9 @@
         el: '.page-3',
         $el: null,
         template: `
-            <ul class="singer-cover"></ul>
+            <ul class="singer-cover">
+                <h4></h4>
+            </ul>
             <section class="songs">
                 <ol id="songs" class="list">
                     <div id="songs-loading" class="square-spin" style="margin: 0 auto; width: 50px;"><div></div></div>
@@ -50,7 +52,6 @@
         renderSinger(data){
             this.$el.find('.singer').html(this.template)
             let {songs2} = data
-            console.log(songs2)
             this.renderSingerCover(songs2)
             songs2.map(song=>{
                 let $li = $(`
@@ -75,10 +76,11 @@
         },
         renderSingerCover(songs2){
             if(songs2.length && songs2.length > 0){
+                this.$el.find('.singer-cover h4').text('最佳匹配')
                 let $li = $(`
                 <li>
                     <figure><img src="${songs2[0].cover}"></figure>
-                    <article><h4>歌手：<span>${songs2[0].singer}</span></h4></article>
+                    <article><h3>歌手：<span>${songs2[0].singer}</span></h3></article>
                     <i>
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-right"></use>
@@ -115,6 +117,7 @@
         songs: null,
         current: null,
         $el: null,
+        $h4: null,
         init(view, model){
             this.view = view
             this.model = model
@@ -125,21 +128,27 @@
         },
         find(current){
             return this.model.find(current.val()).then((songs)=>{
+                console.log(songs)
                 //获取对应搜索内容成功后，先清空当前的数组
                 this.model.data.songs = []
                 this.view.render(this.model.data)
-                songs.map(song=>{
-                    let {singer,name,id} = song.attributes
-                    this.songs = this.model.data.songs
-                    let addSinger = {name:singer}
-                    let addName = {id,name}
-                    if(singer.indexOf(current.val()) > -1){
-                        this.songs.push(addSinger)
-                    }else{
-                        this.songs.push(addName)
-                    }
-                })
+                console.log(this.model.data)
+                this.getSearchSong(songs,current)
                 return this.model.data
+            })
+        },
+        getSearchSong(songs,current){
+            console.log(this.model.data)
+            songs.map(song=>{
+                let {singer,name,id} = song.attributes
+                this.songs = this.model.data.songs
+                let addSinger = {name:singer}
+                let addName = {id,name}
+                if(singer.indexOf(current.val()) > -1){
+                    this.songs.push(addSinger)
+                }else{
+                    this.songs.push(addName)
+                }
             })
         },
         singerFindSong(singer){
@@ -148,6 +157,7 @@
                     this.model.data.songs2.push({...song.attributes})
                 })
                 this.view.renderSinger(this.model.data)
+                this.singerModelCssInitJudge()
             })
         },
         bindEvent(){
@@ -160,6 +170,8 @@
                 this.searchResult(this.current,()=>{
                     timer = setTimeout(()=>{
                         this.find(this.current).then(data=>{
+                            this.repeatData = data
+                            this.singerDisplayNorepeat()
                             this.view.render(data)
                         })
                     },400)   
@@ -168,28 +180,65 @@
             this.clostBtn()
             this.singerClick()
             this.getFocus()
+            this.hotSearch()
         },
         singerClick(){
             this.$el.on('click','#searchResult > li',(e)=>{
                 let current = $(e.currentTarget)
-                this.val = current.find('span').text().trim()
-                this.$el.find('input').val(this.val)
+                this.clickSingerAfterInputVal(current,'span')
+                this.singerModelCssInitJudge()
                 this.getSingerSong(current)
             })
         },
+        singerDisplayNorepeat(){
+            let {songs} = this.repeatData
+            let newStringSongs = songs.map(song=>{
+                return JSON.stringify(song)
+            })
+            let newSongs = [...new Set(newStringSongs)].map(song=>{
+                return JSON.parse(song)
+            })
+            this.model.data.songs = newSongs
+        },
+        singerModelCssInitJudge(){
+            this.$h4 = this.$el.find('.singer-cover > h4')
+            if(this.$h4.text() !== ''){
+                console.log(1)
+                this.$h4.css("padding","8px 0")
+                this.$h4.parent().css("border-bottom","1px solid rgba(0,0,0,.1)")
+            }
+        },
         getFocus(){
             this.$el.on('focus','input',(e)=>{
-                console.log('aaa')
                 this.model.data.songs2 = []
-                console.log(this.model.data)
                 this.view.renderSinger(this.model.data)
             })
         },
+        clickSingerAfterInputVal(current,tabName){
+            this.val = current.find(tabName).text().trim()
+            this.$el.find('input').val(this.val)
+            this.removeLabel()
+        },
         getSingerSong(current){
             let href = current.find('a').attr('href')
+            this.clickSingerAfterInputVal(current,'a')
+            this.singerDisplay(href,this.val)
+        },
+        hotSearch(){
+            this.$el.find('.hot').on('click','li',(e)=>{
+                this.$el.find('.search-start').addClass('hidden')
+                let a = $(e.currentTarget).find('a')
+                let text = a.text()
+                let href = a.attr('href')
+                this.clickSingerAfterInputVal($(e.currentTarget),'a')
+                this.singerDisplay(href,text)
+            })
+        },
+        singerDisplay(href,val){
+            this.$el.find('input').val(this.val)
             if(href === 'javascript:;'){
                 this.$el.find('#searchResult').empty()
-                this.singerFindSong(this.val)
+                this.singerFindSong(val)
             }
         },
         clostBtn(){
@@ -200,25 +249,32 @@
         },
         searchResult(current,fn){
             if(current.val() !== ''){
-                this.$el.find('label').text('')
-                this.$el.find('.close').addClass('active')
+                this.removeLabel()
                 fn()
             }else{
+                console.log(1)
                 this.remove()
             }  
         },
+        removeLabel(){
+            this.$el.find('label').text('')
+            this.$el.find('.close').addClass('active')
+            this.$el.find('.search-start').addClass('hidden')
+        },
         remove(){
-            this.$el.find('label').text('搜索歌曲')
-            this.$el.find('.close').removeClass('active')
-            this.$el.find('input').val('')
+            this.renderInput()
             this.model.data = {songs:[],songs2:[]}
             this.view.render(this.model.data)
             this.view.renderSinger(this.model.data)
             this.$el.find('#searchResult').html('')
+            this.$el.find('.search-start').removeClass('hidden')
         },
         renderInput(){
+            this.$el.find('label').text('搜索歌曲')
+            this.$el.find('.close').removeClass('active')
             this.$el.find('input').val('')
-        }
+        },
+        
     }
     controller.init(view, model)
 }
