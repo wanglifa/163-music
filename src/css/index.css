@@ -247,6 +247,25 @@ body{
     border: none;
     outline: none;
   }
+  .history-list .item{
+    display: flex;
+    align-items: center;
+    height: 45px;
+    line-height: 45px;
+  }
+  .item .item-right{
+    margin: 0 10px;
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
+  .item .item-right a{
+    width: 100%;
+  }
+  .item-right .delete{
+    margin-left: auto;
+    padding-left: 10px;
+  }
   #searchResult li{
     padding-left: 10px;
   }
