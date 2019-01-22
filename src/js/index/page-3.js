@@ -130,8 +130,7 @@
             return this.model.find(current.val()).then((songs)=>{
                 console.log(songs)
                 //获取对应搜索内容成功后，先清空当前的数组
-                this.model.data.songs = []
-                this.view.render(this.model.data)
+                this.songsInit()
                 console.log(this.model.data)
                 this.getSearchSong(songs,current)
                 return this.model.data
@@ -181,6 +180,7 @@
             this.singerClick()
             this.getFocus()
             this.hotSearch()
+            this.inputSubmit()
         },
         singerClick(){
             this.$el.on('click','#searchResult > li',(e)=>{
@@ -269,12 +269,33 @@
             this.$el.find('#searchResult').html('')
             this.$el.find('.search-start').removeClass('hidden')
         },
+        songsInit(){
+            this.model.data.songs = []
+            this.view.render(this.model.data)
+        },
         renderInput(){
             this.$el.find('label').text('搜索歌曲')
             this.$el.find('.close').removeClass('active')
             this.$el.find('input').val('')
         },
-        
+        inputSubmit(){
+            this.$el.on('submit','.search-wrapper',(e)=>{
+                e.preventDefault()
+                this.inputVal = this.$el.find('input').val()
+                let songs = this.model.data.songs
+                if(songs.length && songs.length > 0){
+                    songs.map(song=>{
+                        if(song.id){
+                            location.href = `song.html?id=${song.id}`
+                        }else{
+                            this.songsInit()
+                            this.$el.find('#searchResult').empty()
+                            this.singerFindSong(this.inputVal)
+                        }
+                    })
+                }
+            })
+        }
     }
     controller.init(view, model)
 }
