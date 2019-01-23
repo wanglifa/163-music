@@ -101,4 +101,45 @@
 .page > .links > a.main{
 	background: #D43B32;
 	color: white;
-}	
+}
+
+.progress-wrapper{
+	padding: 14px;
+	display: flex;
+	align-items: center;
+}
+.current-time,.songs-time{
+	color: #fff;
+}
+.current-time{
+	margin-right: 10px;
+}
+.songs-time{
+	margin-left: 10px;
+}
+.progress-bottom{
+	flex: 1;
+	height: 0.4vh;
+	background: rgba(255, 255, 255, 0.8);
+	position: relative;
+}
+.progress-top{
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #D43B32;
+	transition: all .3s linear;
+}
+.progress-dot{
+	width: 1vw;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	background: #fff;
+	cursor: pointer;
+}

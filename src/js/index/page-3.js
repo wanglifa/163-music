@@ -368,6 +368,8 @@
                 let href = $(e.currentTarget).attr('href')
                 this.singerDisplay(href,val)
                 this.clickSingerAfterInputVal(val)
+                this.updataHistoryList({name:val,href})
+                this.model.updataHistoryList()
             })
         },
         deleteHistory(){

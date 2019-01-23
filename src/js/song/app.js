@@ -6,6 +6,7 @@
         `,
         init(){
             this.$el = $(this.el)
+            this.audio = this.$el.find('audio')
         },
         render(data){
             let {song,status} = data
@@ -32,26 +33,41 @@
         pause(){
             this.$el.find('audio')[0].pause()
         },
-        getCurrentTime(time){
+        getCurrentTime(){
+            this.time = this.audio[0].currentTime
+            this.timeFormat()
+            this.$el.find('.current-time').text(this.time)   
+        },
+        lyricProgress(time){
+            this.getCurrentLyric(time)
+            let originalHeight = $(this.p)[0].getBoundingClientRect().top
+            $(this.p).addClass('active').siblings().removeClass('active')
+            let parentHeight = this.$el.find('.lyric> .lines')[0].getBoundingClientRect().top
+            let height = parentHeight - originalHeight + 24
+            this.lyricMove(height)
+        },
+        getCurrentLyric(time){
             let allP = this.$el.find('.lines > p')
             for(let i = 0;i<allP.length;i++){
                 if(i===allP.length-1){
-                    var p = allP[i]
+                    this.p = allP[i]
                     break
                 }else {
                     var prevtime = allP[i].getAttribute('data-time')
                     var nexttime = allP[i+1].getAttribute('data-time')
                     if(prevtime <= time && time < nexttime){
-                        p = allP[i]
+                        this.p = allP[i]
                         break
                     }
                 }   
             }
-            let originalHeight = $(p)[0].getBoundingClientRect().top
-            $(p).addClass('active').siblings().removeClass('active')
-            let parentHeight = this.$el.find('.lyric> .lines')[0].getBoundingClientRect().top
-            let height = parentHeight - originalHeight + 24
-            this.lyricMove(height)
+        },
+        timeFormat(){
+            let minuter = parseInt(this.time / 60)
+            let second = Math.floor(this.time % 60)
+            minuter = (minuter < 10) ? ('0' + minuter) : minuter
+            second = (second < 10) ? ('0' + second) : second
+            this.time = `${minuter}:${second}` 
         },
         statusJudge(status){
             if(status === 'playing'){
@@ -63,14 +79,24 @@
         audioListener(song){
             //重新渲染的时候如果audio里的src是#就让它等于当前的song.url否则，就不去重新渲染
             if(this.$el.find('audio').attr('src') !== song.url){
-                let audio = this.$el.find('audio').attr('src',song.url)
-                audio.on('ended',()=>{
+                this.audio = this.$el.find('audio').attr('src',song.url)
+                this.audio.on('canplay',()=>{
+                    this.getSongLength()
+                })
+                this.audio.on('ended',()=>{
                     window.eventHub.emit('songEnd')
                 })
-                audio.on('timeupdate',()=>{
-                    this.getCurrentTime(audio[0].currentTime)
+                this.audio.on('timeupdate',()=>{
+                    this.updateProgress()
+                    this.lyricProgress(this.audio[0].currentTime)
+                    
                 })
             }
+        },
+        getSongLength(){
+            this.time = this.audio[0].duration
+            this.timeFormat()
+            this.$el.find('.songs-time').text(this.time)
         },
         musicOne(song){
             this.$el.find('.page-container').css('background-image',`url(${song.cover})`)
@@ -79,6 +105,20 @@
         },
         lyricMove(height){
             this.$el.find('.lines').css('transform',`translateY(${height}px)`)
+        },
+        updateProgress(){
+            this.value = this.audio[0].currentTime / this.audio[0].duration
+            this.$el.find('.progress-top').css('width',`${this.value * 100}%`)
+            this.$el.find('.progress-dot').css('left',`${this.value * 100}%`)
+            this.getCurrentTime()
+        },
+        audioEnd(){
+            this.$el.find('.progress-top').css('width',0)
+            this.$el.find('.progress-dot').css('left',0)
+            this.$el.find('.current-time').text('00:00')
+        },
+        playProgress(){
+
         }
         
     }
@@ -139,12 +179,20 @@
                 this.view.render(this.model.data)
                 this.view.pause()
             })
+        this.view.$el.on('mousedown','.progress-bottom',(e)=>{
+            this.current = $(e.currentTarget)
+            let left = e.offsetX
+            let motallength = this.current.width()
+            let audio = this.view.$el.find('audio')[0]
+            audio.currentTime = audio.duration * (left/motallength)
+        })
         },
         bindEventHub(){
             window.eventHub.on('songEnd',()=>{
                 this.model.data.status = 'pause'
                 this.view.render(this.model.data)
                 this.view.lyricMove(24)
+                this.view.audioEnd()
             })
         }
     }
