@@ -144,25 +144,41 @@
                 this.view.render(this.model.data)
             })
         },
+        commentAlert(){
+            this.info.text(this.alertInfo)
+            this.info.addClass('active')
+            setTimeout(()=>{
+                this.info.removeClass('active')
+            },1000)
+        },
         bindEvent(){
             this.view.$el.on('submit','.comment > form',(e)=>{
                 e.preventDefault()
+                this.info = this.view.$el.find('.info')
                 let comments = this.model.data.comments
-                let comment = this.view.$el.find('[name=comment]').val()
+                let comment = this.view.$el.find('[name=comment]').val().trim()
                 if(comment !== '' && comment !== '发布你的评论'){
                     this.model.createComment(comment).then((data)=>{
                         let {context} = data.attributes
-                        let info = this.view.$el.find('.info')
                         comments.unshift(context)
-                        info.addClass('active')
-                        setTimeout(()=>{
-                            info.removeClass('active')
-                        },1000)
+                        this.alertInfo = '发布成功'
+                        this.commentAlert()
                         this.view.renderComment(comments)
-                        this.view.$el.find('[name=comment]').val('发布你的评论')
                     })
+                }else if(comment === '' || comment === '发布你的评论'){
+                    this.alertInfo = '输入的内容不能为空'
+                    this.commentAlert()
                 }
-                
+                this.view.$el.find('[name=comment]').val('发布你的评论')
+            })
+            this.view.$el.on('focus','textarea',(e)=>{
+                this.current = $(e.currentTarget)
+                this.current.val('')
+            })
+            this.view.$el.on('blur','textarea',(e)=>{
+                if(!this.current.val()){
+                    this.current.val('发布你的评论')
+                }
             })
         },
         

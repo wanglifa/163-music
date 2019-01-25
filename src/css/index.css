@@ -304,6 +304,9 @@ body{
     padding-top: 5px;
     border-bottom: 1px solid #E2E2E3;
   }
+  section.songs > .list > li:last-child{
+    border-bottom: none;
+  }
   section.songs > .list .playButton{
     position: absolute;
     right:8px;
