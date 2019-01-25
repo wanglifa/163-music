@@ -143,10 +143,13 @@
         }
     }
     let controller = {
+        flag: false,
+        $document: null,
         init(view, model){
             this.view = view
             this.model = model
             this.view.init()
+            this.$document = $(document)
             this.getId()
             this.model.getSong(this.model.data.id)
                 .then(()=>{
@@ -162,11 +165,56 @@
                 var idOne = search.substring(1).split('&')
                 idOne.map(list=>{
                     var keyValue = list.split('=')
-                    var idKey = keyValue[0]
                     id = keyValue[1]
                 })
             }
             this.model.data.id = id
+        },
+        preventDefaultEvent(){
+            // 禁止默认事件（避免鼠标拖拽进度点的时候选中文字）
+            if (this.event && this.event.preventDefault) {
+                this.event.preventDefault();
+            } else {
+                this.event.returnValue = false;
+            }
+            // 禁止事件冒泡
+            if (this.event && this.event.stopPropagation) {
+                this.event.stopPropagation();
+            } else {
+                window.event.cancelBubble = true;
+            }
+        },
+        down(e){
+            this.flag = true
+            this.event = e || window.event
+            this.clientX = this.event.touches ? this.event.touches[0].clientX : this.event.clientX
+            this.dot = this.view.$el.find('.progress-dot')[0]
+            this.progress = this.view.$el.find('.progress-bottom')[0]
+            this.left = this.clientX - this.dot.offsetLeft
+            this.preventDefaultEvent()
+            
+        },
+        moveLength(){
+            this.maxRightLength = this.progress.offsetWidth
+            if(this.left1 < 0){
+                this.left1 = 0
+            }else if(this.left1 > this.maxRightLength){
+                this.left1 = this.maxRightLength
+            }
+        },
+        move(e){
+            this.event = e || window.event
+            if(this.flag){
+                this.clientX = this.event.touches ? this.event.touches[0].clientX : this.event.clientX
+                this.left1 = this.clientX - this.left
+                this.moveLength()
+                this.motalLeft = this.left1/this.progress.offsetWidth
+                let audio = this.view.$el.find('audio')[0]
+                audio.currentTime = this.motalLeft *audio.duration
+            }
+        },
+        end(){
+            this.flag = false
         },
         bindEvent(){
             this.view.$el.on('click','.icon-play',()=>{
@@ -179,13 +227,19 @@
                 this.view.render(this.model.data)
                 this.view.pause()
             })
-        this.view.$el.on('mousedown','.progress-bottom',(e)=>{
-            this.current = $(e.currentTarget)
-            let left = e.offsetX
-            let motallength = this.current.width()
-            let audio = this.view.$el.find('audio')[0]
-            audio.currentTime = audio.duration * (left/motallength)
-        })
+            this.view.$el.on('mousedown','.progress-bottom',(e)=>{
+                this.current = $(e.currentTarget)
+                let left = e.offsetX
+                let motallength = this.current.width()
+                let audio = this.view.$el.find('audio')[0]
+                audio.currentTime = audio.duration * (left/motallength)
+            })
+            this.view.$el.on('mousedown','.progress-dot',this.down.bind(this))
+            this.view.$el.on('touchstart','.progress-dot',this.down.bind(this))
+            this.$document.on('mousemove','.progress-dot',this.move.bind(this))
+            this.$document.on('touchmove','.progress-dot',this.move.bind(this))
+            this.$document.on('mouseup','.progress-dot',this.end.bind(this))
+            this.$document.on('touchend','.progress-dot',this.end.bind(this))
         },
         bindEventHub(){
             window.eventHub.on('songEnd',()=>{

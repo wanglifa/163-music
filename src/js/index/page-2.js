@@ -53,6 +53,7 @@
             this.model = model
             this.view.init()
             this.model.find().then((data)=>{
+                this.view.$el.find('.loading').remove()
                 this.view.render(data)
             })
         }
