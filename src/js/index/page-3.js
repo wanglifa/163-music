@@ -135,7 +135,6 @@
             return query.find()
         },
         updataHistoryList(){
-            console.log(this.data.historyList)
             localStorage.setItem('search-history',JSON.stringify(this.data.historyList))
         },
     }
@@ -157,16 +156,14 @@
         },
         find(current){
             return this.model.find(current.val()).then((songs)=>{
-                console.log(songs)
                 //获取对应搜索内容成功后，先清空当前的数组
                 this.songsInit()
-                console.log(this.model.data)
+                console.log(2)
                 this.getSearchSong(songs,current)
                 return this.model.data
             })
         },
         getSearchSong(songs,current){
-            console.log(this.model.data)
             songs.map(song=>{
                 let {singer,name,id} = song.attributes
                 this.songs = this.model.data.songs
@@ -291,11 +288,10 @@
             })
         },
         searchResult(current,fn){
-            if(current.val() !== ''){
+            if(current.val().trim() !== ''){
                 this.removeLabel()
                 fn()
             }else{
-                console.log(1)
                 this.remove()
             }  
         },
