@@ -14,6 +14,7 @@
             this.audioListener(song)
             this.statusJudge(status)
             let {lyric} = song
+            console.log(lyric)
             lyric.split('\n').map(string=>{
                 let textTimer = string.match(/\[[\d:.]+\]/)
                 let time = textTimer[0].match(/[\d:.]+/)[0]
