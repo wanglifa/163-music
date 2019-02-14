@@ -73,7 +73,7 @@
 	transition: transform 0.3s;
 }
 .song-description .lyric{
-	height: 72px;
+	height: 230px;
 	overflow: hidden;
 }
 .song-description p.active{
@@ -107,6 +107,7 @@
 	padding: 14px;
 	display: flex;
 	align-items: center;
+	margin-bottom: 60px;
 }
 .current-time,.songs-time{
 	color: #fff;

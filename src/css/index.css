@@ -10,7 +10,7 @@ ul,ol{list-style: none;}
 h1,h2,h3,h4,h5,h6{ font-weight: normal; }
 img{max-width: 100%;}
 
-body{font:14px/1.5 Helvetica,sans-serif;}
+body{font:14px/1.5 Helvetica,sans-serif;background: #171421;}
 .icon {
   width: 1em; height: 1em;
   vertical-align: -0.15em;
@@ -20,7 +20,7 @@ body{font:14px/1.5 Helvetica,sans-serif;}
 
 body{
     font-size: 15px;
-    background: white;
+    color: #fff;
   }
   .loading{
     display: flex;
@@ -28,7 +28,7 @@ body{
   }
   .sectionTitle{
     border-left: 2px solid #D43C33;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1;
     padding-left: 8px;
     margin: 20px 0 8px;
@@ -45,13 +45,16 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #D43C33;
+    background: #171421;
     padding: 17px 10px;
   }
   section.topbar .logo>svg{
     width: 142px;height: 25px;
     vertical-align: top;
   
+  }
+  section.globalTabs{
+    background: #171421;
   }
   section.topbar > a{
     color: white;
@@ -76,7 +79,6 @@ body{
   /* tabs-nav */
   .tabs-nav{
     display: flex;
-    border-bottom: 1px solid #CCCCCC;
   }
   .tabs-nav>li{
     width: 33.333333%;
@@ -124,7 +126,7 @@ body{
   }
   
   .page-2 .cover2{
-    background: url(http://pkl6kjvxu.bkt.clouddn.com/lin-midlle.jpg) no-repeat;
+    background: url(http://pmwiisqjb.bkt.clouddn.com/lin-midlle.jpg) no-repeat;
     background-size: cover;
     padding: 14vh 0;
     background-position: center;
@@ -134,6 +136,9 @@ body{
     flex-wrap: wrap;
     justify-content: space-between;
     font-size: 13px;
+  }
+  section.playlists > ol.songs .cover{
+    margin-bottom: 14px;
   }
   section.playlists > ol.songs > li{
     width: 32.8%;
@@ -150,6 +155,7 @@ body{
   }
   section.playlists > ol.songs > li img{
     width: 100%;
+    display: block;
   }
 
   .page-3 > .search-wrapper{
@@ -161,6 +167,9 @@ body{
   }
   .page-3 .search-wrapper .i-search,.page-3 label,.close{
     position: absolute;
+  }
+  .page-3 .search-wrapper .search .icon,.search-wrapper .search label{
+    color: #666;
   }
   .search-start{
     padding: 0 10px;
@@ -181,9 +190,9 @@ body{
     padding: 0 14px;
     font-size: 14px;
     line-height: 32px;
-    color: #333;
     border-radius: 32px;
-    border: 1px solid #d3d4da;
+    border: 1px solid rgba(217,48,48,.8);
+    background-color: rgba(217,48,48,.8);
   }
   ul.singer-cover {
     padding: 0 10px;
@@ -213,9 +222,10 @@ body{
   }
   .singer-cover article{
     margin-left: 16px;
+    color: #D43C33;
   }
   .singer-cover article span{
-    color: #D43C33;
+    color: #fff;
   }
   .search-wrapper i.i-search {
     left: 0;
@@ -261,7 +271,7 @@ body{
     margin: 0 10px;
     display: flex;
     width: 100%;
-    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid #1A1B33;
   }
   .item .item-right a{
     width: 100%;
@@ -291,7 +301,7 @@ body{
     margin-top: 18px;
   }
   section.songs > .list > li > h3{
-    font-size: 17px;
+    font-size: 14px;
   }
   section.songs > .list > li > p{
     font-size: 12px;
@@ -302,7 +312,7 @@ body{
     margin-left: 10px;
     padding-bottom: 6px;
     padding-top: 5px;
-    border-bottom: 1px solid #E2E2E3;
+    border-bottom: 1px solid #1A1B33;
   }
   section.songs > .list > li:last-child{
     border-bottom: none;

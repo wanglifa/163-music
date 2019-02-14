@@ -43,7 +43,7 @@
             let originalHeight = $(this.p)[0].getBoundingClientRect().top
             $(this.p).addClass('active').siblings().removeClass('active')
             let parentHeight = this.$el.find('.lyric> .lines')[0].getBoundingClientRect().top
-            let height = parentHeight - originalHeight + 24
+            let height = parentHeight - originalHeight + 120
             this.lyricMove(height)
         },
         getCurrentLyric(time){

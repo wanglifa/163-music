@@ -81,13 +81,9 @@ h1{
 .middle{
     padding: 4vh;
 }
-body{
-    background-color: #f8f8f8;
-}
 .sectionTitle{
-    background-color: #eeeff0;
     margin: 0;
-    padding: 2vh;
+    padding: 2vh 0;
     border-left: none;
     display: flex;
     align-items: center;
@@ -147,8 +143,9 @@ body{
 }
 .comment-list ul > li > span{
     width: calc(100% - 54px);
-    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid #1A1B33;
     padding-bottom: 1vh;
+    color: #999;
 }
 .playlist section.songs > .list {
     margin-top: 0;
