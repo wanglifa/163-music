@@ -12,9 +12,7 @@
             let {song,status} = data
             this.musicOne(song)
             this.audioListener(song)
-            this.statusJudge(status)
             let {lyric} = song
-            console.log(lyric)
             lyric.split('\n').map(string=>{
                 let textTimer = string.match(/\[[\d:.]+\]/)
                 let time = textTimer[0].match(/[\d:.]+/)[0]
@@ -25,8 +23,11 @@
                 let [minuter,second] = minuterSecond
                 second = parseFloat(minuter) * 60 + parseFloat(second)
                 $p.attr('data-time',second)
-            })
-            
+            })  
+        },
+        renderStatus(data){
+            let {status} = data
+            this.statusJudge(status)
         },
         play(){
             this.$el.find('audio')[0].play()
@@ -220,12 +221,12 @@
         bindEvent(){
             this.view.$el.on('click','.icon-play',()=>{
                 this.model.data.status = 'playing'
-                this.view.render(this.model.data)
+                this.view.renderStatus(this.model.data)
                 this.view.play()
             })
             this.view.$el.on('click','.icon-pause',()=>{
                 this.model.data.status = 'pause'
-                this.view.render(this.model.data)
+                this.view.renderStatus(this.model.data)
                 this.view.pause()
             })
             this.view.$el.on('mousedown','.progress-bottom',(e)=>{
@@ -245,8 +246,8 @@
         bindEventHub(){
             window.eventHub.on('songEnd',()=>{
                 this.model.data.status = 'pause'
-                this.view.render(this.model.data)
-                this.view.lyricMove(24)
+                this.view.renderStatus(this.model.data.status)
+                this.view.lyricMove(56)
                 this.view.audioEnd()
             })
         }
