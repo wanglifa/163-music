@@ -54,7 +54,6 @@
 .disc-container.playing .icon-play{display: none; }
 
 .song-description{
-	flex-grow: 1;
 	color: #AEABAC;
 	text-align: center;
 	line-height: 2;
@@ -73,7 +72,7 @@
 	transition: transform 0.3s;
 }
 .song-description .lyric{
-	height: 230px;
+	height: 134px;
 	overflow: hidden;
 }
 .song-description p.active{
