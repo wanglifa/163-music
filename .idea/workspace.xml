@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eab88aca-5f6d-4385-8ea5-a07da41588c0" name="默认更改列表" comment="">
+    <list default="true" id="eab88aca-5f6d-4385-8ea5-a07da41588c0" name="默认更改列表" comment="域名更换">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/admin/upload-song.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/admin/upload-song.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -61,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/src/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
-              <caret line="131" column="32" lean-forward="true" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
+              <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -138,8 +134,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="189" />
-    <option name="y" value="352" />
+    <option name="x" value="96" />
+    <option name="y" value="139" />
     <option name="width" value="1374" />
     <option name="height" value="775" />
   </component>
@@ -225,15 +221,23 @@
       <option name="presentableId" value="Default" />
       <updated>1553136902542</updated>
       <workItem from="1553136905431" duration="1684000" />
-      <workItem from="1585125037381" duration="5345000" />
+      <workItem from="1585125037381" duration="5907000" />
     </task>
+    <task id="LOCAL-00001" summary="域名更换">
+      <created>1585138234126</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585138234126</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7029000" />
+    <option name="totallyTimeSpent" value="7591000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="189" y="352" width="1374" height="775" extended-state="0" />
+    <frame x="285" y="373" width="1374" height="775" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
@@ -258,6 +262,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="域名更换" />
+    <option name="LAST_COMMIT_MESSAGE" value="域名更换" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/admin.html">
@@ -351,7 +359,7 @@
     <entry file="file://$PROJECT_DIR$/src/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
-          <caret line="131" column="32" lean-forward="true" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
+          <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
         </state>
       </provider>
     </entry>
