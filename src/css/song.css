@@ -40,9 +40,11 @@
 .disc-container .disc{display: flex; justify-content: center; align-items: center; margin-top: 18vw; }
 .disc-container .ring{width: 72vw; } 
 .disc-container .light{width: 72vw; position: absolute; }
-.disc-container .cover{width: 44.5vw; position: absolute; border-radius: 50%;  
-  animation: circle 20s infinite linear; 
+.disc-container .cover{width: 44.5vw; position: absolute; border-radius: 50%;
+  animation: circle 20s infinite linear;
+    height: 44.5vw;
   animation-play-state: paused;
+    display: block;
 }
 .disc-container.playing .light,
 .disc-container.playing .cover{
@@ -67,6 +69,7 @@
 .song-description p{
 	font-size: 14px;
 	line-height: 28px;
+    padding: 0 2em;
 }
 .song-description .lines{
 	transition: transform 0.3s;
