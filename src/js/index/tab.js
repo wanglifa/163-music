@@ -38,7 +38,7 @@
         positionTab(){
             let tabs = ['page-1','page-2','page-3']
             tabs.map(tab=>{
-                if(this.tab === tab){
+                if(this.tab.indexOf(tab) >= 0){
                     this.view.$el.find(`.tab-content > .${tab}`).addClass('active')
                     this.view.$el.find(`.tabs-nav > li[data-tab-name=${tab}]`).addClass('active')
                 }else{

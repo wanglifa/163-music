@@ -17,6 +17,289 @@ body{font:14px/1.5 Helvetica,sans-serif;background: #171421;}
   fill: currentColor;
   overflow: hidden;
 }
+.bb-bookblock {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 100;
+    -webkit-perspective: 1300px;
+    perspective: 1300px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.main {
+    width: 95%;
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bg-opacity {
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,.65);
+    z-index: 100;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.bb-page {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
+}
+.bb-item img {
+    width: 100%;
+    height: auto;
+}
+
+.bb-vertical .bb-page {
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.bb-horizontal .bb-page {
+    width: 100%;
+    height: 50%;
+    top: 50%;
+    -webkit-transform-origin: center top;
+    transform-origin: center top;
+}
+
+.bb-page > div,
+.bb-outer,
+.bb-content,
+.bb-inner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.bb-vertical .bb-content {
+    width: 200%;
+}
+
+.bb-horizontal .bb-content {
+    height: 200%;
+}
+
+.bb-page > div {
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.bb-vertical .bb-back {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.bb-horizontal .bb-back {
+    -webkit-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+}
+
+.bb-outer {
+    width: 100%;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.bb-overlay,
+.bb-flipoverlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.bb-flipoverlay {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bb-bookblock.bb-vertical > div.bb-page:first-child,
+.bb-bookblock.bb-vertical > div.bb-page:first-child .bb-back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.bb-bookblock.bb-horizontal > div.bb-page:first-child,
+.bb-bookblock.bb-horizontal > div.bb-page:first-child .bb-back {
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+/* Content display */
+.bb-content {
+    background: #fff;
+}
+
+.bb-vertical .bb-front .bb-content {
+    left: -100%;
+}
+
+.bb-horizontal .bb-front .bb-content {
+    top: -100%;
+}
+
+/* Flipping classes */
+.bb-vertical .bb-flip-next,
+.bb-vertical .bb-flip-initial {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.bb-vertical .bb-flip-prev {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+.bb-horizontal .bb-flip-next,
+.bb-horizontal .bb-flip-initial {
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+.bb-horizontal .bb-flip-prev {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+}
+
+.bb-vertical .bb-flip-next-end {
+    -webkit-transform: rotateY(-15deg);
+    transform: rotateY(-15deg);
+}
+
+.bb-vertical .bb-flip-prev-end {
+    -webkit-transform: rotateY(-165deg);
+    transform: rotateY(-165deg);
+}
+
+.bb-horizontal .bb-flip-next-end {
+    -webkit-transform: rotateX(15deg);
+    transform: rotateX(15deg);
+}
+
+.bb-horizontal .bb-flip-prev-end {
+    -webkit-transform: rotateX(165deg);
+    transform: rotateX(165deg);
+}
+
+.bb-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    background: #fff;
+}
+
+/* No JS */
+.no-js .bb-bookblock,
+.no-js ul.bb-custom-grid li {
+    width: auto;
+    height: auto;
+}
+
+.no-js .bb-item {
+    display: block;
+    position: relative;
+}
+.bb-custom-wrapper {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.bb-custom-wrapper .bb-bookblock {
+    box-shadow: 0 12px 20px -10px rgba(81,64,49,0.6);
+}
+
+.bb-custom-wrapper h3 {
+    font-size: 1.4em;
+    font-weight: 300;
+    margin: 0.4em 0 1em;
+}
+
+.bb-custom-wrapper nav {
+    width: 100%;
+    height: 30px;
+    margin: 1em auto 0;
+    position: relative;
+    z-index: 0;
+    text-align: center;
+}
+
+.bb-custom-wrapper nav a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 2px;
+    background: #72b890;
+    color: #fff;
+    font-size: 0;
+    margin: 2px;
+}
+
+.bb-custom-wrapper nav a:hover {
+    opacity: 0.6;
+}
+
+.bb-custom-icon:before {
+    font-family: 'arrows';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 20px;
+    line-height: 30px;
+    display: block;
+    -webkit-font-smoothing: antialiased;
+}
+
+.bb-custom-icon-first:before,
+.bb-custom-icon-last:before {
+    content: "\e002";
+}
+
+.bb-custom-icon-arrow-left:before,
+.bb-custom-icon-arrow-right:before {
+    content: "\e003";
+}
+
+.bb-custom-icon-arrow-left:before,
+.bb-custom-icon-first:before {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/* No JS */
+.no-js .bb-custom-wrapper {
+    height: auto;
+}
+
+.no-js .bb-custom-content {
+    height: 470px;
+}
+
 
 body{
     font-size: 15px;
@@ -126,7 +409,7 @@ body{
   }
   
   .page-2 .cover2{
-    background: url(http://q7qr4w0m7.bkt.clouddn.com/middle.jpg) no-repeat;
+    background: url(http://qa07k75qy.bkt.clouddn.com/middle.jpg) no-repeat;
     background-size: cover;
     padding: 10vh 0;
     background-position: center;
