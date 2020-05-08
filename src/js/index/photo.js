@@ -90,6 +90,24 @@ var Page = (function () {
   return {init: init};
 
 })();
+function  audioAutoPlay(id){
+  var audio = document.getElementById(id);
+
+  if (window.WeixinJSBridge) {
+    WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+      audio.play();
+    }, false);
+  } else {
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        audio.play();
+      });
+    }, false);
+  }
+  audio.play();
+
+  return false;
+}
 let isInit = sessionStorage.getItem('initDo')
 if (!isInit) {
   sessionStorage.setItem('initDo', 1)
@@ -97,17 +115,7 @@ if (!isInit) {
   $(document).ready(function () {
     $('.bg-opacity').animate({opacity: '1'}, 1500, 'linear')
     $('.main').animate({top: '50%'}, 1500, 'linear')
-    document.addEventListener('DOMContentLoaded', function () {
-      function audioAutoPlay() {
-        var audio = document.getElementById('myaudio1');
-        audio.play();
-        document.addEventListener("WeixinJSBridgeReady", function () { audio.play(); }, false);
-      }
-
-      audioAutoPlay();
-    });
-
-
+   audioAutoPlay('myaudio1')
   })
 
 } else {
