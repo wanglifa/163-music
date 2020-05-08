@@ -1,36 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eab88aca-5f6d-4385-8ea5-a07da41588c0" name="默认更改列表" comment="添加热门歌曲搜索">
-      <change afterPath="$PROJECT_DIR$/src/img/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/js/index/photo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendors/demoad.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendors/ga.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendors/jquery.bookblock.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendors/jquerypp.custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendors/modernizr.custom.js" afterDir="false" />
+    <list default="true" id="eab88aca-5f6d-4385-8ea5-a07da41588c0" name="默认更改列表" comment="图片提前加载">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/admin/upload-song.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/admin/upload-song.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/index/tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index/tab.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4613">
-              <caret line="217" selection-start-line="217" selection-end-line="217" />
+            <state relative-caret-position="322">
+              <caret line="43" column="14" lean-forward="true" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#ol#0;n#section#1;n#li#0;n#ol#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -74,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/index/photo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="114" column="1" lean-forward="true" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+            <state relative-caret-position="118">
+              <caret line="72" column="48" lean-forward="true" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -156,14 +129,14 @@
         <option value="$PROJECT_DIR$/src/js/admin/upload-song.js" />
         <option value="$PROJECT_DIR$/src/js/index/tab.js" />
         <option value="$PROJECT_DIR$/src/css/index.css" />
-        <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/src/js/index/photo.js" />
+        <option value="$PROJECT_DIR$/src/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="144" />
-    <option name="y" value="225" />
+    <option name="x" value="138" />
+    <option name="y" value="79" />
     <option name="width" value="1374" />
     <option name="height" value="775" />
   </component>
@@ -263,7 +236,7 @@
       <workItem from="1585125037381" duration="7245000" />
       <workItem from="1585534997357" duration="300000" />
       <workItem from="1585535440023" duration="8221000" />
-      <workItem from="1588903035951" duration="14177000" />
+      <workItem from="1588903035951" duration="15269000" />
     </task>
     <task id="LOCAL-00001" summary="域名更换">
       <created>1585138234126</created>
@@ -300,14 +273,29 @@
       <option name="project" value="LOCAL" />
       <updated>1585558133871</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="测试提交">
+      <created>1588935360265</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588935360265</updated>
+    </task>
+    <task id="LOCAL-00007" summary="图片提前加载">
+      <created>1588935935644</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1588935935644</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31627000" />
+    <option name="totallyTimeSpent" value="32719000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="272" y="23" width="1374" height="775" extended-state="0" />
+    <frame x="138" y="79" width="1374" height="775" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="npm" order="1" side_tool="true" visible="true" weight="0.13738738" />
@@ -322,11 +310,11 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.50524735" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.110944524" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="3" side_tool="true" visible="true" weight="0.022522522" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="3" side_tool="true" visible="true" weight="0.22147147" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +326,9 @@
     <MESSAGE value="标题修改" />
     <MESSAGE value="更新曲库修复bug" />
     <MESSAGE value="添加热门歌曲搜索" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加热门歌曲搜索" />
+    <MESSAGE value="测试提交" />
+    <MESSAGE value="图片提前加载" />
+    <option name="LAST_COMMIT_MESSAGE" value="图片提前加载" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/qiniu-config.json">
@@ -490,15 +480,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/index/photo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="114" column="1" lean-forward="true" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        <state relative-caret-position="118">
+          <caret line="72" column="48" lean-forward="true" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4613">
-          <caret line="217" selection-start-line="217" selection-end-line="217" />
+        <state relative-caret-position="322">
+          <caret line="43" column="14" lean-forward="true" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#ol#0;n#section#1;n#li#0;n#ol#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
