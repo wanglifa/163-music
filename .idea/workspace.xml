@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eab88aca-5f6d-4385-8ea5-a07da41588c0" name="默认更改列表" comment="微信浏览器音乐播放测试">
+    <list default="true" id="eab88aca-5f6d-4385-8ea5-a07da41588c0" name="默认更改列表" comment="标题修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,13 +19,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="28" column="109" selection-start-line="28" selection-start-column="109" selection-end-line="28" selection-end-column="109" />
+            <state relative-caret-position="328">
+              <caret line="28" column="127" selection-start-line="28" selection-start-column="127" selection-end-line="28" selection-end-column="127" />
               <folding>
                 <element signature="n#style#0;n#audio#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#ol#0;n#section#1;n#li#0;n#ol#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#ol#0;n#section#0;n#li#1;n#ol#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -42,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/admin/upload-song.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="552">
               <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
             </state>
           </provider>
@@ -51,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/index/photo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2348">
+            <state relative-caret-position="2691">
               <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
             </state>
           </provider>
@@ -60,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/index/tab.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
+            <state relative-caret-position="828">
               <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
             </state>
           </provider>
@@ -69,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="9453">
               <caret line="411" column="63" selection-start-line="411" selection-start-column="63" selection-end-line="411" selection-end-column="63" />
             </state>
           </provider>
@@ -139,8 +138,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="112" />
-    <option name="y" value="325" />
+    <option name="x" value="223" />
+    <option name="y" value="162" />
     <option name="width" value="1374" />
     <option name="height" value="775" />
   </component>
@@ -240,7 +239,8 @@
       <workItem from="1585125037381" duration="7245000" />
       <workItem from="1585534997357" duration="300000" />
       <workItem from="1585535440023" duration="8221000" />
-      <workItem from="1588903035951" duration="17994000" />
+      <workItem from="1588903035951" duration="18642000" />
+      <workItem from="1589038669255" duration="288000" />
     </task>
     <task id="LOCAL-00001" summary="域名更换">
       <created>1585138234126</created>
@@ -305,18 +305,25 @@
       <option name="project" value="LOCAL" />
       <updated>1588937147363</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="标题修改">
+      <created>1588989027200</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1588989027200</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35444000" />
+    <option name="totallyTimeSpent" value="36380000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="197" width="1374" height="775" extended-state="0" />
+    <frame x="223" y="162" width="1374" height="775" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="1" side_tool="true" visible="true" weight="0.13738738" />
+      <window_info id="npm" order="1" side_tool="true" visible="true" weight="0.13663663" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -332,7 +339,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="3" side_tool="true" visible="true" weight="0.072822824" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="3" side_tool="true" visible="true" weight="0.073573574" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,14 +348,14 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="域名更换" />
     <MESSAGE value="测试" />
-    <MESSAGE value="标题修改" />
     <MESSAGE value="更新曲库修复bug" />
     <MESSAGE value="添加热门歌曲搜索" />
     <MESSAGE value="测试提交" />
     <MESSAGE value="图片提前加载" />
     <MESSAGE value="更改图片地址" />
     <MESSAGE value="微信浏览器音乐播放测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="微信浏览器音乐播放测试" />
+    <MESSAGE value="标题修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="标题修改" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/qiniu-config.json">
@@ -450,13 +457,6 @@
         <state relative-caret-position="-95" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/admin/upload-song.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -474,31 +474,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/index/tab.js">
+    <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="411" column="63" selection-start-line="411" selection-start-column="63" selection-end-line="411" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2875">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/index/photo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2348">
-          <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
+        <state relative-caret-position="328">
+          <caret line="28" column="127" selection-start-line="28" selection-start-column="127" selection-end-line="28" selection-end-column="127" />
+          <folding>
+            <element signature="n#style#0;n#audio#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -509,16 +492,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/src/js/admin/upload-song.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="28" column="109" selection-start-line="28" selection-start-column="109" selection-end-line="28" selection-end-column="109" />
-          <folding>
-            <element signature="n#style#0;n#audio#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ol#0;n#section#1;n#li#0;n#ol#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ol#0;n#section#0;n#li#1;n#ol#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="552">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/index/photo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2691">
+          <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/index/tab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9453">
+          <caret line="411" column="63" selection-start-line="411" selection-start-column="63" selection-end-line="411" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2875">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
         </state>
       </provider>
     </entry>
