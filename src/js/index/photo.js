@@ -85,7 +85,7 @@ var Page = (function () {
       var myAuto = document.getElementById('myaudio1')
       myAuto.pause()
     }
-  }, 4000)
+  }, 4500)
 
   return {init: init};
 
