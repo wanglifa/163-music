@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eab88aca-5f6d-4385-8ea5-a07da41588c0" name="默认更改列表" comment="标题修改">
+    <list default="true" id="eab88aca-5f6d-4385-8ea5-a07da41588c0" name="默认更改列表" comment="播放时间修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="28" column="127" selection-start-line="28" selection-start-column="127" selection-end-line="28" selection-end-column="127" />
+            <state relative-caret-position="138">
+              <caret line="28" column="109" selection-start-line="28" selection-start-column="109" selection-end-line="28" selection-end-column="109" />
               <folding>
                 <element signature="n#style#0;n#audio#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -50,8 +50,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/index/photo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2691">
-              <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
+            <state relative-caret-position="189">
+              <caret line="81" column="35" lean-forward="true" selection-start-line="77" selection-start-column="2" selection-end-line="81" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../turn.js实现翻书效果_files/turn.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../turn.js实现翻书效果.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="9" column="38" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -109,6 +127,9 @@
       <find>main</find>
       <find>Need a ha</find>
       <find>ba</find>
+      <find>display</find>
+      <find>display:</find>
+      <find>turn.js</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -133,13 +154,14 @@
         <option value="$PROJECT_DIR$/src/js/index/tab.js" />
         <option value="$PROJECT_DIR$/src/css/index.css" />
         <option value="$PROJECT_DIR$/src/js/index/photo.js" />
+        <option value="$PROJECT_DIR$/../../turn.js实现翻书效果_files/turn.js" />
         <option value="$PROJECT_DIR$/src/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="223" />
-    <option name="y" value="162" />
+    <option name="x" value="69" />
+    <option name="y" value="275" />
     <option name="width" value="1374" />
     <option name="height" value="775" />
   </component>
@@ -240,7 +262,8 @@
       <workItem from="1585534997357" duration="300000" />
       <workItem from="1585535440023" duration="8221000" />
       <workItem from="1588903035951" duration="18642000" />
-      <workItem from="1589038669255" duration="288000" />
+      <workItem from="1589038669255" duration="1858000" />
+      <workItem from="1589111029616" duration="479000" />
     </task>
     <task id="LOCAL-00001" summary="域名更换">
       <created>1585138234126</created>
@@ -312,18 +335,32 @@
       <option name="project" value="LOCAL" />
       <updated>1588989027200</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="背景音乐修改">
+      <created>1589039185813</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1589039185813</updated>
+    </task>
+    <task id="LOCAL-00012" summary="播放时间修改">
+      <created>1589039791921</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1589039791921</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36380000" />
+    <option name="totallyTimeSpent" value="38429000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="223" y="162" width="1374" height="775" extended-state="0" />
+    <frame x="69" y="275" width="1374" height="775" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="1" side_tool="true" visible="true" weight="0.13663663" />
+      <window_info id="npm" order="1" side_tool="true" visible="true" weight="0.13588588" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -339,7 +376,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="3" side_tool="true" visible="true" weight="0.073573574" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="3" side_tool="true" visible="true" weight="0.074324325" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +392,9 @@
     <MESSAGE value="更改图片地址" />
     <MESSAGE value="微信浏览器音乐播放测试" />
     <MESSAGE value="标题修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="标题修改" />
+    <MESSAGE value="背景音乐修改" />
+    <MESSAGE value="播放时间修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="播放时间修改" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/qiniu-config.json">
@@ -474,17 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="28" column="127" selection-start-line="28" selection-start-column="127" selection-end-line="28" selection-end-column="127" />
-          <folding>
-            <element signature="n#style#0;n#audio#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendors/moxie.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -499,10 +527,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/index/photo.js">
+    <entry file="file://$PROJECT_DIR$/../../turn.js实现翻书效果_files/turn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2691">
-          <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
+        <state relative-caret-position="253">
+          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -524,6 +552,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2875">
           <caret line="125" selection-start-line="125" selection-end-line="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../turn.js实现翻书效果.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/index/photo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="81" column="35" lean-forward="true" selection-start-line="77" selection-start-column="2" selection-end-line="81" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="28" column="109" selection-start-line="28" selection-start-column="109" selection-end-line="28" selection-end-column="109" />
+          <folding>
+            <element signature="n#style#0;n#audio#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
